@@ -1,5 +1,6 @@
 # if_bge_wol
-Patch to enable Wake on LAN for the if_bge driver on FreeBSD 11.1. Tested on HP Proliant Microserver N36L on 11.1-RELEASE-p9
+Patch to enable Wake on LAN for the if_bge driver on FreeBSD 11.1. 
+Tested on HP Proliant Microserver N36L on 11.1-RELEASE-p9, should work on the N40L and N54L.
 
 ### Instructions
 * cd /usr/src/sys/dev/bge/
@@ -9,10 +10,11 @@ Patch to enable Wake on LAN for the if_bge driver on FreeBSD 11.1. Tested on HP 
 * make install
 * cp ./if_bge.ko /kernel/modules/
 * clean
+* Add `if_bge_load="YES"` to `/boot/loader.conf`
 
 To test:
 * shutdown -r now
-* 'ifconfig bge0' should show `WOL_MAGIC` under `OPTIONS`
+* `ifconfig bge0` should show `WOL_MAGIC` under `OPTIONS`
 
 ### History
 * Update of my previous PR for 10.1-RELEASE [here](https://bitbucket.org/w4w/bge-wol-freebsd-10.1-patch/pull-requests/1/patch-to-fix-for-svn-version-282752-and/diff).
