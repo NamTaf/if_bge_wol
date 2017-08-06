@@ -8,7 +8,7 @@ Tested on HP Proliant Microserver N36L on 11.1-RELEASE-p9, should work on the N4
 * cd /usr/src/sys/modules/bge/
 * make
 * make install
-* cp ./if_bge.ko /kernel/modules/
+* cp ./if_bge.ko /boot/kernel/
 * clean
 * Add `if_bge_load="YES"` to `/boot/loader.conf`
 
